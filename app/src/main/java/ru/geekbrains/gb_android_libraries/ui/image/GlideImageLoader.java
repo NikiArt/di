@@ -3,19 +3,24 @@ package ru.geekbrains.gb_android_libraries.ui.image;
 import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+
 import ru.geekbrains.gb_android_libraries.mvp.model.api.INetworkStatus;
 import ru.geekbrains.gb_android_libraries.mvp.model.cache.ImageCache;
 import ru.geekbrains.gb_android_libraries.mvp.model.image.IImageLoader;
-import ru.geekbrains.gb_android_libraries.ui.NetworkStatus;
 
 public class GlideImageLoader implements IImageLoader<ImageView> {
 
-    INetworkStatus networkStatus = new NetworkStatus();
+    INetworkStatus networkStatus;
+
+    public GlideImageLoader(INetworkStatus networkStatus) {
+        this.networkStatus = networkStatus;
+    }
 
     @Override
     public void loadInto(String url, ImageView container) {

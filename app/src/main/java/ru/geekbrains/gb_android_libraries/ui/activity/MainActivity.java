@@ -8,20 +8,22 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import ru.geekbrains.gb_android_libraries.App;
 import ru.geekbrains.gb_android_libraries.R;
 import ru.geekbrains.gb_android_libraries.mvp.model.image.IImageLoader;
 import ru.geekbrains.gb_android_libraries.mvp.presenter.MainPresenter;
 import ru.geekbrains.gb_android_libraries.mvp.view.MainView;
-import ru.geekbrains.gb_android_libraries.ui.NetworkStatus;
 import ru.geekbrains.gb_android_libraries.ui.adapter.RepositoriesRVAdapter;
-import ru.geekbrains.gb_android_libraries.ui.image.GlideImageLoader;
 
 public class MainActivity extends MvpAppCompatActivity implements MainView {
 
@@ -42,7 +44,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     RepositoriesRVAdapter adapter;
 
-    IImageLoader<ImageView> imageLoader = new GlideImageLoader();
+    @Inject
+    IImageLoader<ImageView> imageLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
