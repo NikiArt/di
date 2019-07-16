@@ -52,6 +52,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        App.getInstance().getAppComponent().inject(this);
     }
 
     @ProvidePresenter

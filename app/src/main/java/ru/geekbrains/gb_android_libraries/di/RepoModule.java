@@ -1,5 +1,7 @@
 package ru.geekbrains.gb_android_libraries.di;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 import ru.geekbrains.gb_android_libraries.mvp.model.api.IDataSource;
@@ -7,8 +9,6 @@ import ru.geekbrains.gb_android_libraries.mvp.model.api.INetworkStatus;
 import ru.geekbrains.gb_android_libraries.mvp.model.cache.ICache;
 import ru.geekbrains.gb_android_libraries.mvp.model.repo.IUsersRepo;
 import ru.geekbrains.gb_android_libraries.mvp.model.repo.UsersRepo;
-
-import javax.inject.Named;
 
 @Module(includes = {CacheModule.class, ApiModule.class})
 public class RepoModule {
